@@ -1,0 +1,90 @@
+{% extends 'base1.html' %}
+
+{% block title %} Top 10 NEWS - UK {% endblock %}
+
+{% block body %}
+    <div class="jumbotron p-3">
+        <div class="well text-center">
+            <h1>Todays top 10 News</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="container p-3 my-3 border">
+                    <div class="jumbotron p-1">
+                        <div class="well text-center">
+                            <h5>Sky News</h5>
+                        </div>
+                    </div>
+                      <p class="text-justify">
+                          {% for i in range(0,10) %}
+                        <img src="{{message[i].image}}" class="img-fluid">
+                            <h5><a href={{message[i].link}} target="_blank">{{message[i].news}}</a></h5></br>
+                            {% endfor %}
+                      </p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="container p-3 my-3 border">
+                    <div class="jumbotron p-1">
+                        <div class="well text-center">
+                            <h5>BBC News</h5>
+                        </div>
+                    </div>
+                      <p>
+                          {% for i in range(0,10) %}
+                        <img src="{{message[i].image}}" class="img-fluid">
+                            <h5><a href={{message[i].link}} target="_blank">{{message[i].news}}</a></h5></br>
+                            {% endfor %}
+                      </p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="container p-3 my-3 border">
+                    <div class="jumbotron p-1">
+                        <div class="well text-center">
+                            <h5>The Guardian</h5>
+                        </div>
+                    </div>
+                      <p>
+                          {% for i in range(0,10) %}
+                        <img src="{{message[i].image}}" class="img-fluid">
+                            <h5><a href={{message[i].link}} target="_blank">{{message[i].news}}</a></h5></br>
+                            {% endfor %}
+                      </p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="container p-3 my-3 border">
+                    <div class="jumbotron p-1">
+                        <div class="well text-center">
+                            <h5>Daily Mail Online</h5>
+                        </div>
+                    </div>
+                      <p>
+                          {% for i in range(0,10) %}
+                        <img src="{{message[i].image}}" class="img-fluid">
+                            <h5><a href={{message[i].link}} target="_blank">{{message[i].news}}</a></h5></br>
+                            {% endfor %}
+                      </p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="container p-3 my-3 border">
+                    <div class="jumbotron p-1">
+                        <div class="well text-center">
+                            <h5>The Telegraph</h5>
+                        </div>
+                    </div>
+                      <p>
+                          {% for i in range(0,10) %}
+                        <img src="{{message[i].image}}" class="img-fluid">
+                            <h5><a href={{message[i].link}} target="_blank">{{message[i].news}}</a></h5></br>
+                            {% endfor %}
+                      </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

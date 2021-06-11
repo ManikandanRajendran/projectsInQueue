@@ -1,0 +1,155 @@
+WidgetExample:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'bg1.png'
+
+
+<WidgetExample>:
+    cols:3
+    ToggleButton:
+        text:"OFF"
+        id:toggle
+        on_state:root.toggle_button_press(self)
+        size_hint: None, 1
+        width:"100dp"
+    Button:
+        text:"click me"
+        on_press:root.click_me()
+        disabled: not root.count_enabled
+    Label:
+        text:root.my_text
+        font_name:"fonts/Lcd.ttf"
+        font_size:"90dp"
+        color:1, .5, .5, 1
+    Switch:
+        id: switchId
+        size_hint:None, 1
+        width:"100dp"
+        active:True
+        on_active:root.switch_active(self)
+    Slider:
+        id:my_slider
+        min:0
+        max:100
+        disabled: not switchId.active
+#        value:0
+#        on_value: root.slider_value(self)
+    BoxLayout:
+        orientation:"vertical"
+#        spacing: 20
+        padding:0, 0, 20, 0
+        Label:
+            text: str(int(my_slider.value))
+        ProgressBar:
+            max:my_slider.max
+            value: my_slider.value
+    TextInput:
+        id:textInput
+        text:"foo"
+        size_hint:None, 1
+        width:"100dp"
+        multiline: False
+        on_text_validate:root.text_input_validate(self)
+    Label:
+        text: root.textInput_text
+
+<PageLayoutWidget@PageLayout>:
+#    mainWidget:
+    BoxLayoutWidget:
+    AnchorLayoutWidget:
+    ScrollViewWidget:
+
+
+<ScrollViewWidget@ScrollView>:
+    StackLayoutWidget:
+        size_hint:1, None
+        height: self.minimum_height
+
+<StackLayoutWidget>:
+    # left-right and top-bottom : Must be one of: ['lr-tb', 'tb-lr', 'rl-tb', 'tb-rl', 'lr-bt', 'bt-lr', 'rl-bt', 'bt-rl']
+#    orientation:"lr-bt"
+#    spacing: 20
+#    padding: 20, 20, 20, 20
+#    Button:
+#        text:"A"
+#        size_hint:.2, .2
+#    Button:
+#        text:"B"
+#        size_hint:.2, .2
+#    Button:
+#        text:"C"
+#        size_hint:.2, .2
+
+
+<GridLayoutWidget>:
+# two main properties - rows and cols
+#    cols:3
+    rows:3
+    Button:
+        text:"A"
+    BoxLayoutWidget:
+    Button:
+        text:"C"
+    Button:
+        text:"D"
+    Button:
+        text:"E"
+
+<AnchorLayoutWidget>:
+    #left, right, center
+    anchor_x:"center"
+    # top, bottom, center
+    anchor_y:"center"
+    BoxLayout:
+        spacing:20
+        size_hint:.2, .2
+        Button:
+            text:"A"
+        Button:
+            text:"C"
+        Button:
+            text:"B"
+
+<BoxLayoutWidget>:
+#    orientation:"vertical"
+    Button:
+        text:"hello"
+#        size:"80dp", "40dp"
+        size_hint: 0.5, 0.5
+#        width:"100dp"
+        height:"60dp"
+        # x, center_x, right - horizontal
+        # y, center_y, top  - vertical
+        pos_hint:{"center_y":.5} #to move the button tp particular position
+    BoxLayout:
+        orientation:"vertical"
+        spacing:"10dp"
+        Button:
+            text:"A"
+#            size_hint:1, 2
+        Button:
+            text:"B"
+#            size_hint:1, 2
+        Button:
+            text:"C"
+#            size_hint:1, 2
+        Button:
+            text:"D"
+#            size_hint:1, 2
+    Label:
+        text:"E"
+        size_hint:1, 1
+
+<mainWidget>:
+    Button:
+        text:"A"
+        size: "10dp", "10dp"
+        pos: "200dp", "300dp"
+        color: 0.2, 0.5, 0.2, 1
+    Label:
+        text:"Hello"
+        color: 0.5, 0.3, 0.2, 1
+    Button:
+        text:"B"

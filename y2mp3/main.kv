@@ -1,0 +1,50 @@
+<FirstPage>:
+    GridLayout:
+        cols:1
+        padding: 15, 15
+        spacing: 20, 20
+        GridLayout:
+            padding: 15, 15
+            spacing: 20, 20
+            cols:1
+            Label:
+                text:"Enter youtube url"
+                color: 1,0,1,1
+                font_size:'20sp'
+            TextInput:
+                id: searchWord
+                size_hint: (.2, 01.0)
+                height: 30
+                hint_text: "Enter the youtube url"
+                multiline: False
+        RelativeLayout:
+            GridLayout:
+                cols:1
+                padding: 55, 55
+                spacing: 40, 40
+                Button:
+                    text: "select folder"
+                    size_hint: 0.2, 0.4
+                    pos_hint: {"center_x":0.5, "center_y":0.6}
+                    on_press: root.get_synonym(root.ids.searchWord.text)
+        RelativeLayout:
+            GridLayout:
+                cols:1
+                padding: 45, 45
+                spacing: 30, 30
+                Button:
+                    text: "Download"
+                    size_hint: 0.2, 0.4
+                    pos_hint: {"center_x":0.5, "center_y":0.6}
+                    on_press: root.download_mp3(root.ids.searchWord.text)
+
+
+
+<RootWidget>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'bg1.png'
+    FirstPage:
+        name:"main_page"
