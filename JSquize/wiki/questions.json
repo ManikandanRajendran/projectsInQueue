@@ -1,0 +1,19 @@
+{
+    "questions": [
+        {
+            "question": "write a program to find whether the given string is polindrome",
+            "answere": "let polindrome = (value) => value == (value.split('').reverse().join(''))\nconsole.log(polindrome(value1))",
+            "complexity": "medium"
+        },
+        {
+            "question": "what is the output of below and why?\nconsole.log(typeof typeof 1)",
+            "answere": "The answer is \"String\", because typeof 1 returns \"number\" and typeof \"number\" is string",
+            "complexity": "simple"
+        },
+        {
+            "question": "Write a function called sum which will execute both console.log(sum(2,3)), console.log(sum(2)(3))",
+            "answere": "function sum(...num)\n{\nif(num.length == 2){\nreturn num[0]+num[1];\n}else{\nreturn function(y){\nreturn parseInt(num) + y;\n}\n}\n}",
+            "complexity": "complex"
+        }
+    ]
+}

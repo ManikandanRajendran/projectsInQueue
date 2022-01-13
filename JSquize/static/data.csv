@@ -1,0 +1,14 @@
+Question,Answer,complexity
+write a program to find whether the given string is polindrome,"let polind = (value) => value == (value.split("""").reverse().join(''))
+console.log(polind(value1))",Medium
+what is the output of below and why?\nconsole.log(typeof typeof 1),"The answer is ""String"", because typeof 1 returns ""number"" and typeof ""number"" is string",Simple
+,"function sum(...num)
+{
+  if(num.length == 2){
+    return num[0]+num[1];
+  }else{
+    return function(y){
+      return parseInt(num) + y;
+    }
+  }
+}",complexity

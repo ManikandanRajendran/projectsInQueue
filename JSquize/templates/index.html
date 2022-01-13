@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>JavaScript interview Q&A</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+    body{font: 20px Montserrat, sans-serif;
+    line-height: 1.8;
+    background-color: #474e5d;
+    color: #f5f6f7;}
+    .jumbotron{background-color: #1abc86;}
+    .bg-1 { 
+    background-color: #474e5d; /* Dark Blue */
+    color: #ffffff;
+  }
+  .bg-2 { 
+    background-color: #474e5d; /* Dark Blue */
+    color: #ffffff;
+  }
+  .container-fluid.bg-1 {
+    padding-top: 50px;
+    padding-bottom: 70px;
+  }
+  .jumbotron{
+    padding-top: 70px;
+    padding-bottom: 70px;
+    margin-bottom: 0%;
+  }
+
+</style>
+<body>
+
+<div class="jumbotron text-center">
+  <h2>JavaScript Interview Questions and answers</h1>
+  <p>Practise and enhance your knowledge!</p> 
+</div>
+
+<div class="container-fluid bg-1 text-center" id="hidden-div1">
+        <h3>About me!</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <a href="http://manikandanr.pythonanywhere.com/" target="_blank"><img src="./../static/myimg.jpg" class="img-responsive img-circle margin" style="display:inline" alt="myImg" width="150" height="150"></a>
+            </div>
+            <div class="col-md-4">
+                <p><br>Having 9+ years of experience in software testing as a test analyst. 3 years of manual testing and 6 years of automation testing experience which includes API/microservices automation using POSTMAN with JavaScript and web automation using PROTRACTOR on selenium with JavaScript, python with behave. Good knowledge of agile/KANBAN methodology.</p>
+                <p></p><a href="http://manikandanr.pythonanywhere.com/" target="_blank" style="color:red">Want to know more...</a></p>
+            </div>
+          </div>       
+        
+  </div>
+  
+<div class="container-fluid bg-1 text-center">
+    <button onclick="myFunction();ShowAndHide('hidden-div1');ShowAndHide('hidden-div')" type="button" class="btn btn-primary btn-lg" id="hidden-div">Start Practise</button>      
+</div>
+
+<div class="container-fluid bg-1 text-center">
+    <div class="row">
+        <h3><p id="question"></p></h3>
+        <button onclick="myFunction();" type="button" class="btn btn-primary btn-lg" id="hidden-div">Next</button>
+    </div>
+  </div>
+
+<script>
+    async function myFunction() {
+        var obj=await fetchQuestions();
+        var i = Math.floor(Math.random() * 3);
+        let qstn = obj.questions[i].question; 
+        console.log(qstn);
+      document.getElementById("question").innerHTML = qstn;
+    }
+
+    async function fetchQuestions()
+    {
+        const data = await fetch('./../wiki/questions.json')
+                        .then(response => response.json())
+                        console.log(data);
+        return data;   
+    }
+
+    function ShowAndHide(id)
+    {
+    var x = document.getElementById(id);
+        if (x.style.display == 'none')
+        {
+            x.style.display = 'block';
+        }
+        else
+        {
+            x.style.display = 'none';
+        }
+    }
+</script>
+
+</body>
+</html>
